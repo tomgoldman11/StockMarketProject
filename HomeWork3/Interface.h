@@ -45,8 +45,8 @@ void interface::createCompany(string name)
 		cout << "you must enter a positive amount!" << endl;
 		return;
 	}
-	company* newCompany = new company(name, name_side, type, value, amount);
-	companies.push_back(newCompany);
+	company* newCompany = new company(name, name_side, type, value, amount); // creating a new company with given input from user
+	companies.push_back(newCompany); // add the created company to the vector of companies
 	return;
 }
 
@@ -58,15 +58,15 @@ void interface::createGovernShare(const company& c)
 		cout << endl;
 		return;
 	}
-	int m, y, d;
+	int d, m, y;
 	double interest;
 	governShare temp;
 	int amount;
-	cout << "insert amount of shares you want to buy: ";
+	cout << "insert the amount of shares you want to buy: ";
 	cin >> amount;
 	try
 	{
-		temp.buy(amount, c);
+		temp.buy(amount, c); // buying the amount of shares from company c
 	}
 	catch (exception& e)
 	{
@@ -93,7 +93,7 @@ void interface::createGovernShare(const company& c)
 		return;
 	}
 	security* newGovernShare = new governShare(c.getNameCompany(), c.getValue(), amount, ((100)*((double)(amount) / (double)(c.getAmount()))), interest, da, false);
-	wong.push_back(newGovernShare);
+	wong.push_back(newGovernShare); // insert the new governshare into the vector wong
 	return;
 }
 
@@ -156,7 +156,7 @@ void interface::createShare(const company& c)
 	cin >> amount;
 	try
 	{
-		temp.buy(amount, c);
+		temp.buy(amount, c); // buying the amount of shares from company c
 	}
 	catch (exception& e)
 	{
@@ -172,10 +172,10 @@ int interface::nameExist(string name)
 {
 	for (int i = 0; i < companies.size(); i++)
 	{
-		if (companies[i]->getNameCompany() == name)
+		if (companies[i]->getNameCompany() == name) // if the name of the company exist , return its index
 			return i;
 	}
-	return -1;
+	return -1; // return -1 if we couldn't find the name
 }
 
 template <class T>
@@ -268,7 +268,7 @@ void interface::run()
 		cout << "3.functions on bonds" << endl;
 		cout << "4.functions on governsahres" << endl;
 		cout << "0.exit" << endl;
-		cout << "please insert your choise:  ";
+		cout << "please insert your choise: ";
 		cin >> cmd;
 
 		if (cmd == 1)
@@ -339,7 +339,7 @@ void interface::run()
 				p2 = nameExist(name2);
 				if (p1 == -1 || p2 == -1)
 				{
-					cout << "you entered a company who doesnt exist" << endl;
+					cout << "you entered a company who doesn't exist" << endl;
 					cout << "---------------------------------" << endl;
 					continue;
 				}
@@ -406,7 +406,7 @@ void interface::run()
 			{
 				if (companies.size() == 0)
 				{
-					cout << "there is not companies yet" << endl;
+					cout << "there are no companies yet" << endl;
 					cout << "---------------------------------" << endl;
 					continue;
 				}
@@ -539,7 +539,7 @@ void interface::run()
 				int check = 0;
 				if (wong.size() == 0)
 				{
-					cout << "there is no shares yet" << endl;
+					cout << "there are no shares yet" << endl;
 					cout << "---------------------------------" << endl;
 					continue;
 				}
@@ -552,7 +552,7 @@ void interface::run()
 					}
 				}
 				if (check == 0)
-					cout << "there is not shares yet";
+					cout << "there are no shares yet";
 				cout << "---------------------------------" << endl;
 				continue;
 			}
@@ -588,12 +588,12 @@ void interface::run()
 				string name;
 				char newCompany;
 				int p, p1, amount;
-				cout << "enter name of the company: ";
+				cout << "enter the name of the company: ";
 				cin >> name;
 				p = nameExist(name);
 				if (p == -1)
 				{
-					cout << "company doesnt exist. would you like to add the company? (y/n)";
+					cout << "company doesn't exist. would you like to add the company? (y/n)";
 					cin >> newCompany;
 					if (newCompany == 'y')
 					{
@@ -617,7 +617,7 @@ void interface::run()
 						cout << "---------------------------------" << endl;
 						continue;
 					}
-					cout << "enter amount that you want to buy: ";
+					cout << "enter the amount that you want to buy: ";
 					cin >> amount;
 					try
 					{
@@ -698,7 +698,7 @@ void interface::run()
 				}
 				if (temp < dynamic_cast<bond*>(wong[p])->getDate())
 				{
-					cout << "you inserted a date which earlier than the original one" << endl;
+					cout << "you inserted a date which is earlier than the original one" << endl;
 					cout << "---------------------------------" << endl;
 					continue;
 				}
@@ -753,7 +753,7 @@ void interface::run()
 				int check = 0;
 				if (wong.size() == 0)
 				{
-					cout << "there is not bonds yet" << endl;
+					cout << "there are no bonds yet" << endl;
 					cout << "---------------------------------" << endl;
 					continue;
 				}
@@ -766,7 +766,7 @@ void interface::run()
 					}
 				}
 				if (check == 0)
-					cout << "there is not bonds yet";
+					cout << "there are no bonds yet";
 				cout << "---------------------------------" << endl;
 				continue;
 			}
@@ -819,7 +819,7 @@ void interface::run()
 				string name;
 				char newCompany;
 				int p, p1, amount;
-				cout << "enter name of the company: ";
+				cout << "enter the name of the company: ";
 				cin >> name;
 				p = nameExist(name);
 				if (p == -1)
@@ -848,7 +848,7 @@ void interface::run()
 						cout << endl << "---------------------------------" << endl;
 						continue;
 					}
-					cout << "enter amount that you want to buy: ";
+					cout << "enter the amount that you want to buy: ";
 					cin >> amount;
 					try
 					{
@@ -938,7 +938,7 @@ void interface::run()
 			{
 				int p, d, m, y;
 				string name;
-				cout << "enter  governshare: ";
+				cout << "enter governshare: ";
 				cin >> name;
 				p = exist<governShare>(name);
 				if (p == -1)
@@ -962,7 +962,7 @@ void interface::run()
 				}
 				if (temp < dynamic_cast<governShare*>(wong[p])->getDate())
 				{
-					cout << "you inserted a date which earlier than the original one";
+					cout << "you inserted a date which is earlier than the original one";
 					cout << "---------------------------------" << endl;
 					continue;
 				}
@@ -975,7 +975,7 @@ void interface::run()
 				int p;
 				string name;
 				double interest;
-				cout << "enter  governshare: ";
+				cout << "enter governshare: ";
 				cin >> name;
 				p = exist<governShare>(name);
 				if (p == -1)
@@ -1030,7 +1030,7 @@ void interface::run()
 					}
 				}
 				if (check == 0)
-					cout << "there is not governshares yet";
+					cout << "there are no governshares yet";
 				cout << "---------------------------------" << endl;
 				continue;
 			}

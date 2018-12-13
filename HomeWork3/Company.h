@@ -1,5 +1,5 @@
-// Tom Goldman   204380836 //
-// Gilad Nomberg 312421282 //
+/* Tom Goldman   204380836 
+   Gilad Nomberg 312421282 */
 #pragma once
 #include <iostream>
 #include <string>
@@ -43,7 +43,7 @@ public:
 		os << "The name of the company is: " << c.name_company << endl;
 		os << "The name of the side is: " << c.name_side << endl;
 		os << "Company type: " << c.type << endl;
-		os << "Value of share: " << c.value << endl;
+		os << "Value of a share: " << c.value << endl;
 		os << "amount of shares: " << c.amount << endl;
 		return os;
 	}

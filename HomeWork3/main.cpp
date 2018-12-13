@@ -9,5 +9,5 @@ using namespace std;
 void main()
 {
 	interface inter;
-	inter.run();
+	inter.run(); // we just need to run the interface to make the program start
 }

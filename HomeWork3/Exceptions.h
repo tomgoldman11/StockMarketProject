@@ -1,5 +1,5 @@
-// Tom Goldman   204380836 //
-// Gilad Nomberg 312421282 //
+/* Tom Goldman   204380836 
+   Gilad Nomberg 312421282 */
 #pragma once
 #include <exception>
 using namespace std;
